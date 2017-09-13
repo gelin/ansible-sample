@@ -1,5 +1,8 @@
 syntax: glob
 
 *.iml
-.idea/*
-.vagrant/*
+.idea
+
+subinclude:vagrant/.hgignore
+
+subinclude:hello-service/.hgignore
