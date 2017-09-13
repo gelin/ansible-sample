@@ -1,0 +1,5 @@
+hello:
+  name: 'Vasya'
+
+server:
+  port: 8888
