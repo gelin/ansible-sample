@@ -4,7 +4,7 @@
   hosts: hello-server
   roles:
     - common
-#    - java
+    - java
 #    - nginx
 #    - name: hello-service
 #      tags:

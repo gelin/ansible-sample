@@ -1,0 +1,13 @@
+---
+
+- name: add backports repository
+  apt_repository:
+    repo: 'deb {{ java_debian_mirror }} jessie-backports main'
+    state: present
+    filename: 'jessie-backports'
+
+- name: install jre
+  apt:
+    name: '{{ java_package }}'
+    state: present
+    default_release: 'jessie-backports'
