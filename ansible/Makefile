@@ -6,4 +6,4 @@ provision:
 
 .PHONY: deploy
 deploy:
-	ansible-playbook -i $(INVENTORY) provision.yml
+	ansible-playbook -i $(INVENTORY) deploy.yml

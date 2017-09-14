@@ -1,0 +1,5 @@
+hello:
+  name: '{{ hello_name }}'
+
+server:
+  port: '{{ hello_nginx_backend_port }}'

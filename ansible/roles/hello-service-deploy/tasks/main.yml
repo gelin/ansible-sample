@@ -1,0 +1,6 @@
+---
+
+- include: 'hello-service-deploy.yml'
+  tags:
+    - hello-service
+    - hello-service:deploy

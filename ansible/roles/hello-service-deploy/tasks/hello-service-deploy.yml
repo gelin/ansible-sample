@@ -1,0 +1,35 @@
+---
+- name: copy config files
+  copy:
+    src: '{{ item }}'
+    dest: '{{ hello_basedir }}/config/{{ item | basename }}'
+    owner: '{{ hello_user }}'
+    backup: yes
+  with_fileglob:
+    - '{{ hello_localdir }}/config/*.yml'
+#    - '{{ hello_localdir }}/config/*.csv'
+#    - '{{ hello_localdir }}/config/*.xml'
+#    - '{{ hello_localdir }}/config/*.properties'
+  notify: restart service
+
+- name: create config file
+  template:
+    src: 'application.yml'
+    dest: '{{ hello_basedir }}/config/application-{{ hello_spring_profile }}.yml'
+    owner: '{{ hello_user }}'
+    backup: yes
+  notify: restart service
+
+- name: copy jar file
+  copy:
+    src: '{{ item }}'
+    dest: '{{ hello_basedir }}/{{ hello_jar }}'
+    owner: '{{ hello_user }}'
+  with_fileglob:
+    - '{{ hello_localdir }}/build/libs/hello-service-*.jar'
+  notify: restart service
+
+- name: start service
+  service:
+    name: '{{ hello_service_name }}'
+    state: started
