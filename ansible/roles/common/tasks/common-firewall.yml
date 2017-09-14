@@ -1,0 +1,23 @@
+---
+- name: install ufw
+  apt:
+    name: ufw
+
+- name: open ssh port
+  ufw:
+    rule: allow
+    port: '{{ item }}'
+    proto: tcp
+  with_items:
+  - 22
+
+- name: allow trusted networks
+  ufw:
+    rule: allow
+    src: '{{ item }}'
+  with_items: '{{ common_trusted_networks }}'
+
+- name: enable ufw
+  ufw:
+    state: enabled
+    policy: deny

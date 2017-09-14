@@ -1,0 +1,5 @@
+---
+- name: disable ufw
+  ufw:
+    state: disabled
+    policy: allow

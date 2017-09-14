@@ -1,0 +1,13 @@
+---
+- include: 'common-ntp.yml'
+  tags:
+    - common
+    - common:ntp
+- include: 'common-locales.yml'
+  tags:
+    - common
+    - common:locales
+#- include: 'common-firewall-disable.yml'
+#  tags:
+#    - common
+#    - common:firewall

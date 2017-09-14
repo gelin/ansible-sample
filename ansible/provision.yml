@@ -1,0 +1,12 @@
+#!/usr/bin/env ansible-playbook
+---
+- name: Provision Hello server
+  hosts: hello-server
+  roles:
+    - common
+#    - java
+#    - nginx
+#    - name: hello-service
+#      tags:
+#        - hello-service:install
+#        - hello-service:nginx

@@ -1,0 +1,10 @@
+---
+
+common_trusted_networks:
+  - '172.16.0.0/12'     # private network
+  - '109.194.115.162'   # 7bits office
+
+common_locales:
+  - 'en_US.UTF-8'
+  - 'ru_RU.UTF-8'
+#  - 'es_ES.UTF-8'

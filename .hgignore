@@ -3,6 +3,7 @@ syntax: glob
 *.iml
 .idea
 
+subinclude:ansible/.hgignore
+subinclude:hello-service/.hgignore
 subinclude:vagrant/.hgignore
 
-subinclude:hello-service/.hgignore
