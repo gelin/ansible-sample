@@ -1,0 +1,26 @@
+---
+- name: add user
+  user:
+    name: '{{ hello_user }}'
+    system: yes
+
+- name: create dirs
+  file:
+    path: '{{ item }}'
+    owner: '{{ hello_user }}'
+    state: directory
+  with_items:
+    - '{{ hello_basedir }}'
+    - '{{ hello_basedir }}/config'
+#    - '{{ hello_basedir }}/var'
+
+- name: create service config
+  template:
+    src: service.config
+    dest: '/etc/systemd/system/{{ hello_service_name }}.service'
+  notify: reload systemd
+
+- name: enable service
+  service:
+    name: '{{ hello_service_name }}'
+    enabled: yes

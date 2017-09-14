@@ -1,0 +1,5 @@
+---
+- name: disable default configuration
+  file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent

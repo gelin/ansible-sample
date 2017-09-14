@@ -1,0 +1,11 @@
+---
+
+- include: 'hello-service-install.yml'
+  tags:
+    - hello-service
+    - hello-service:install
+
+- include: 'hello-service-nginx.yml'
+  tags:
+    - hello-service
+    - hello-service:nginx

@@ -1,0 +1,14 @@
+---
+hello_basedir: '/opt/hello-server'
+hello_localdir: '../../hello-service'
+
+hello_user: 'hello-server'
+hello_service_name: 'hello-server'
+hello_service_description: 'Hello server'
+hello_syslog_identifier: 'hello'
+hello_java: '/usr/bin/java'
+hello_jar: 'hello-service.jar'
+hello_spring_profile: 'testing'
+
+hello_nginx_site_config: hello
+hello_nginx_backend_port: 8080

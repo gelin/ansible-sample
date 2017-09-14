@@ -1,0 +1,17 @@
+---
+- name: copy nginx configuration
+  template:
+    src: nginx.config
+    dest: '/etc/nginx/sites-available/{{ hello_nginx_site_config }}'
+  notify: restart nginx
+
+- name: enable nginx configuration
+  file:
+    src: '/etc/nginx/sites-available/{{ hello_nginx_site_config }}'
+    dest: '/etc/nginx/sites-enabled/{{ hello_nginx_site_config }}'
+    state: link
+  notify: restart nginx
+
+- name: validate nginx configuration
+  command: /usr/sbin/nginx -t
+  changed_when: false

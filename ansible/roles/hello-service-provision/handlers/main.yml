@@ -1,0 +1,14 @@
+---
+- name: restart service
+  service:
+    name: '{{ hello_service_name }}'
+    state: restarted
+
+- name: reload systemd
+  command: systemctl daemon-reload
+  notify: restart service
+
+- name: restart nginx
+  service:
+    name: nginx
+    state: restarted
